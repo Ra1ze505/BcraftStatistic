@@ -60,9 +60,9 @@ standard_init_linux.go:228: exec user process caused: no such file or directory
 
 ### On Linux:
 ```
-ERROR: for web  Cannot start service web: OCI runtime create failed: container_linux.go:380: starting container process caused: exec: "/home/app/web/entrypoint.prod.sh": permission denied: unknown
+ERROR: for web  Cannot start service web: OCI runtime create failed: container_linux.go:380: starting container process caused: exec: "/home/app/web/entrypoint.sh": permission denied: unknown
 ```
 #### you need:
 ```
-chmod +x entrypoint.prod.sh 
+chmod +x entrypoint.sh 
 ```
