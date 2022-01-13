@@ -45,6 +45,12 @@ docker-compose exec --user django <container-name> sh
 source /src/venv/bin/activate
 ```
 
+#### Run tests
+
+```
+python manage.py test:
+```
+
 # You may get errors:
 ### On windows:
 ```
