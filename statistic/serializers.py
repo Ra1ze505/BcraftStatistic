@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import serializers, exceptions
 
 from .models import StaticItem
 
@@ -10,3 +10,13 @@ class StaticSerializer(serializers.ModelSerializer):
     class Meta:
         model = StaticItem
         fields = '__all__'
+
+    def validate(self, attrs):
+        if attrs.get('views', 0) <= 0:
+            attrs['views'] = None
+        if attrs.get('click', 0) <= 0:
+            attrs['click'] = None
+        if 'cost' in attrs and attrs['cost'] < 0:
+            raise exceptions.ValidationError('cost must be positive')
+
+        return attrs
